@@ -456,3 +456,13 @@ int sgx_mm_init(size_t user_base, size_t user_end)
     if (!sgx_mm_register_pfhandler(sgx_mm_enclave_pfhandler)) return EFAULT;
     return 0;
 }
+
+#ifdef EMA_TEST
+extern ema_root_t g_user_ema_root;
+void debug_dump_ema_root()
+{
+    dump_ema_root(&g_user_ema_root);
+}
+
+
+#endif

@@ -75,7 +75,7 @@ ema_root_t g_rts_ema_root = {.guard = &rts_ema_guard};
 ema_t user_ema_guard = {.next = &user_ema_guard, .prev = &user_ema_guard};
 ema_root_t g_user_ema_root = {.guard = &user_ema_guard};
 
-#ifdef TEST
+#ifdef EMA_TEST
 static void dump_ema_node(ema_t* node, size_t index)
 {
     printf("------ node #%lu ------\n", index);
@@ -113,7 +113,7 @@ void destroy_ema_root(ema_root_t* root)
 #endif
 }
 
-#ifdef TEST
+#ifdef EMA_TEST
 size_t ema_base(ema_t* node)
 {
     return node->start_addr;
@@ -326,7 +326,7 @@ int ema_split(ema_t* ema, size_t addr, bool new_lower, ema_t** ret_node)
 {
     // this is only needed for UT
     // in real usage in the file, addr always overlap
-#ifdef TEST
+#ifdef EMA_TEST
     if (!ema_overlap_addr(ema, addr) || !ret_node)
     {
         return EINVAL;

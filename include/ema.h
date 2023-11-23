@@ -43,6 +43,9 @@
 #define SGX_PAGE_SIZE  0x1000ULL
 #define SGX_PAGE_SHIFT 12
 
+
+// enable ema test to dump root
+#define EMA_TEST
 typedef struct ema_root_ ema_root_t;
 typedef struct ema_t_ ema_t;
 
@@ -54,7 +57,7 @@ extern "C"
 #ifndef NDEBUG
     ema_t* ema_next(ema_t* node);
 #endif
-#ifdef TEST
+#ifdef EMA_TEST
     void destroy_ema_root(ema_root_t*);
     void dump_ema_root(ema_root_t*);
     size_t ema_base(ema_t* node);
