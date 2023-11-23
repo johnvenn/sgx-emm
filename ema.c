@@ -78,9 +78,9 @@ ema_root_t g_user_ema_root = {.guard = &user_ema_guard};
 #ifdef EMA_TEST
 static void dump_ema_node(ema_t* node, size_t index)
 {
-    printf("------ node #%lu ------\n", index);
-    printf("start:\t0x%lX\n", node->start_addr);
-    printf("size:\t0x%lX\n", node->size);
+    tprintf("------ node #%lu ------\n", index);
+    tprintf("start:\t0x%lX\n", node->start_addr);
+    tprintf("size:\t0x%lX\n", node->size);
 }
 
 void dump_ema_root(ema_root_t* root)
